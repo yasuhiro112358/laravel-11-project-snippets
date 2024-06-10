@@ -1,0 +1,214 @@
+{
+    "Laravel Route Index": {
+        "prefix": "RouteIndex",
+        "body": [
+            "Route::get('/', [${1:User}Controller::class, 'index'])",
+            "\t->name('index');"
+        ],
+        "description": "Create a Index route in Laravel"
+    },
+    "Laravel Route Create": {
+        "prefix": "RouteCreate",
+        "body": [
+            "Route::get('/create', [${1:User}Controller::class, 'create'])",
+            "\t->name('create');"
+        ],
+        "description": "Create a Create route in Laravel"
+    },
+    "Laravel Route Store": {
+        "prefix": "RouteStore",
+        "body": [
+            "Route::post('/store', [${1:User}Controller::class, 'store'])",
+            "\t->name('store');"
+        ],
+        "description": "Create a Store route in Laravel"
+    },
+    "Laravel Route Show": {
+        "prefix": "RouteShow",
+        "body": [
+            "Route::get('/{id}/show', [${1:User}Controller::class, 'show'])",
+            "\t->name('show');"
+        ],
+        "description": "Create a Show route in Laravel"
+    },
+    "Laravel Route Edit": {
+        "prefix": "RouteEdit",
+        "body": [
+            "Route::get('/{id}/edit', [${1:User}Controller::class, 'edit'])",
+            "\t->name('edit');"
+        ],
+        "description": "Create a Edit route in Laravel"
+    },
+    "Laravel Route Update": {
+        "prefix": "RouteUpdate",
+        "body": [
+            "Route::patch('/{id}/update', [${1:User}Controller::class, 'update'])",
+            "\t->name('update');"
+        ],
+        "description": "Create a Update route in Laravel"
+    },
+    "Laravel Route Destroy": {
+        "prefix": "RouteDestroy",
+        "body": [
+            "Route::delete('/{id}/destroy', [${1:User}Controller::class, 'destroy'])",
+            "\t->name('destroy');"
+        ],
+        "description": "Create a Destroy route in Laravel"
+    },
+    "Laravel Route Helper Index": {
+        "prefix": "routeIndex",
+        "body": [
+            "route('${1:users.}index')"
+        ],
+        "description": ""
+    },
+    "Laravel Route Helper Create": {
+        "prefix": "routeCreate",
+        "body": [
+            "route('${1:users.}create')"
+        ],
+        "description": ""
+    },
+    "Laravel Route Helper Store": {
+        "prefix": "routeStore",
+        "body": [
+            "route('${1:users.}store')"
+        ],
+        "description": ""
+    },
+    "Laravel Route Helper Show": {
+        "prefix": "routeShow",
+        "body": [
+            "route('${1:users.}show', \\$${2:id})"
+        ],
+        "description": ""
+    },
+    "Laravel Route Helper Edit": {
+        "prefix": "routeEdit",
+        "body": [
+            "route('${1:users.}edit', \\$${2:id})"
+        ],
+        "description": ""
+    },
+    "Laravel Route Helper Update": {
+        "prefix": "routeUpdate",
+        "body": [
+            "route('${1:users.}update', \\$${2:id})"
+        ],
+        "description": ""
+    },
+    "Laravel Route Helper Destroy": {
+        "prefix": "routeDestroy",
+        "body": [
+            "route('${1:users.}destroy', \\$${2:id})"
+        ],
+        "description": ""
+    },
+    "Laravel Route Group": {
+        "prefix": "RouteGroup",
+        "body": [
+            "Route::group(['prefix' => '${1:users}', 'as' => '${1:users}.'], function () {",
+            "    // Routes go here",
+            "    $2",
+            "});"
+        ],
+        "description": "Create a Route Group in Laravel"
+    },
+    "Laravel Route Group with Middleware": {
+        "prefix": "RouteGroupMiddleware",
+        "body": [
+            "Route::group(['middleware' => '${1:auth}'], function () {",
+            "    // Routes go here",
+            "    $2",
+            "});"
+        ],
+        "description": "Create a Route Group with Middleware in Laravel"
+    },
+    "Laravel Auth Facade Import": {
+        "prefix": "useAuth",
+        "body": [
+            "use Illuminate\\Support\\Facades\\Auth;"
+        ],
+        "description": "Import the Auth Facade in Laravel"
+    },
+    "Laravel Storage Facade Import": {
+        "prefix": "useStorage",
+        "body": [
+            "use Illuminate\\Support\\Facades\\Storage;"
+        ],
+        "description": "Import the Storage Facade in Laravel"
+    },
+    "Laravel Request Class Import": {
+        "prefix": "useRequest",
+        "body": [
+            "use Illuminate\\Http\\Request;"
+        ],
+        "description": "Import the Request class in Laravel"
+    },
+    "Laravel View with Data": {
+        "prefix": "returnViewWith",
+        "body": [
+            "return view('${1:view}')",
+            "\t->with('${2:variable}', $${2:variable});"
+        ],
+        "description": "Return a view with data in Laravel"
+    },
+    "Laravel Save Image Method": {
+        "prefix": "methodSaveImage",
+        "body": [
+            "const LOCAL_STORAGE_FOLDER = 'public/images/';",
+            "",
+            "private function saveImage(\\$img_obj)",
+            "{",
+            "\t\\$img_name = time() . '.' . \\$img_obj->extension();",
+            "",
+            "\t\\$img_obj->storeAs(self::LOCAL_STORAGE_FOLDER, \\$img_name);",
+            "",
+            "\treturn \\$img_name;",
+            "}",
+            "",
+            "// Run 'php artisan storage:link'"
+        ],
+        "description": "Function to save an image in Laravel with a timestamped name"
+    },
+    "Laravel Delete Image Method": {
+        "prefix": "methodDeleteImage",
+        "body": [
+            "const LOCAL_STORAGE_FOLDER = 'public/images/';",
+            "",
+            "private function deleteImage(\\$img_name)",
+            "{",
+            "    \\$img_path = self::LOCAL_STORAGE_FOLDER . \\$img_name;",
+            "",
+            "    if (Storage::disk('local')->exists(\\$img_path)) {",
+            "        Storage::disk('local')->delete(\\$img_path);",
+            "    }",
+            "}"
+        ],
+        "description": ""
+    },
+    "Laravel Redirect to Route": {
+        "prefix": "returnRedirectRoute",
+        "body": [
+            "return redirect()->route('${1:route_name}', \\$${2:id})",
+            "    ${3:->with('status', '${4:session_message}')};"
+        ],
+        "description": "Redirects the user to a route."
+    },
+    "Laravel Redirect Back": {
+        "prefix": "returnRedirectBack",
+        "body": [
+            "return redirect()->back();"
+        ],
+        "description": "Redirects the user to the previous page."
+    },
+    "Laravel Check if Authenticated": {
+        "prefix": "ifNotAuth",
+        "body": [
+            "if (\\$${1:user_id} !== Auth::user()->id) {",
+            "    ${2:return redirect()->back();}",
+            "}"
+        ],
+        "description": "Checks if user is authenticated, and redirects back if not."
+    }
+}

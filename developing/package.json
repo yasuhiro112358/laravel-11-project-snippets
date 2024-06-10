@@ -1,8 +1,8 @@
 {
-  "name": "Laravel-11-Snippets",
-  "displayName": "Laravel 11 Snippets",
-  "description": "This is a sample VS Code extension for creating custom snippets.",
-  "version": "0.0.1",
+  "name": "laravel-11-project-snippets",
+  "displayName": "Laravel 11 Project Snippets",
+  "description": "VS Code extension for creating custom snippets for Laravel 11 Project.",
+  "version": "0.0.3",
   "publisher": "nabeyasu112358",
   "engines": {
     "vscode": "^1.90.0"
@@ -10,23 +10,50 @@
   "categories": [
     "Snippets"
   ],
-  "activationEvents": [
-    "onLanguage:javascript"
-  ],
-  "main": "./src/extension.js",
 
   "contributes": {
-    "commands": [{
-      "command": "MyFirstExtension.helloWorld",
-      "title": "Hello World"
-    }],
     "snippets": [
       {
+        "language": "html",
+        "path": "./snippets/html-snippets.json"
+      },
+      {
+        "language": "html",
+        "path": "./snippets/bootstrap5-snippets.json"
+      },
+      {
         "language": "javascript",
-        "path": "./snippets/snippets.json"
+        "path": "./snippets/js-snippets.json"
+      },
+      {
+        "language": "php",
+        "path": "./snippets/php-snippets.json"
+      },
+      {
+        "language": "php",
+        "path": "./snippets/laravel11-snippets.json"
+      },
+      {
+        "language": "blade",
+        "path": "./snippets/html-snippets.json"
+      },
+      {
+        "language": "blade",
+        "path": "./snippets/bootstrap5-snippets.json"
+      },
+      {
+        "language": "blade",
+        "path": "./snippets/blade-snippets.json"
       }
     ]
   },
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:javascript",
+    "onLanguage:php",
+    "onLanguage:blade"
+  ],
+  "main": "./src/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "echo 'No compilation required for JavaScript' && exit 0",
@@ -37,7 +64,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yasuhiro112358/laravel-11-snippets"
+    "url": "https://github.com/yasuhiro112358/laravel-11-project-snippets"
   },
   "devDependencies": {
     "@types/vscode": "^1.90.0",

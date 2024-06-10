@@ -1,0 +1,29 @@
+{
+  "nl2br": {
+    "prefix": "nl2br",
+    "body": [
+      "{!! nl2br(e(\\$${0:variable})) !!}"
+    ],
+    "description": ""
+  },
+  "Blade Template with layouts": {
+    "prefix": "extendslayouts",
+    "body": [
+      "@extends('layouts.app')",
+      "",
+      "@section('title', '${1:title}')",
+      "",
+      "@section('content')",
+      "    ${2:content}",
+      "@endsection"
+    ],
+    "description": "Create a Blade template with layouts.app"
+  },
+  "Laravel Asset Storage Image": {
+    "prefix": "assetImage",
+    "body": [
+      "asset('storage/images/' . \\$${1:file_name})"
+    ],
+    "description": "Generates a URL for the image stored in the 'public/storage/images/' directory."
+  }
+}

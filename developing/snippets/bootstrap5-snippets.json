@@ -1,0 +1,19 @@
+{
+    "Bootstrap5 Container": {
+      "prefix": "bs5-container",
+      "body": [
+        "<div class=\"container\">",
+        "  $1",
+        "</div>"
+      ],
+      "description": "Bootstrap 5 container"
+    },
+    "Bootstrap5 Button": {
+      "prefix": "bs5-btn",
+      "body": [
+        "<button type=\"button\" class=\"btn btn-primary\">$1</button>"
+      ],
+      "description": "Bootstrap 5 button"
+    }
+  }
+  

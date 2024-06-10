@@ -1,0 +1,84 @@
+{
+  "php": {
+    "prefix": "php",
+    "body": [
+      "<?php",
+      "\t$0",
+      "?>"
+    ]
+  },
+  "echo": {
+    "prefix": "echo",
+    "body": [
+      "<?= $0 ?>"
+    ]
+  },
+  "foreach": {
+    "prefix": "foreach",
+    "body": [
+      "<?php foreach (\\$${1:variable} as \\$${2:key} => \\$${3:value}) : ?>",
+      "\t${0:<!-- Code here -->}",
+      "<?php endforeach; ?>"
+    ]
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "<?php if (${1:\\$condition}) : ?>",
+      "\t${0:<!-- Code here -->}",
+      "<?php endif; ?>"
+    ]
+  },
+  "elseif": {
+    "prefix": "elseif",
+    "body": [
+      "<?php elseif (${1:\\$condition}) : ?>",
+      "\t${0:<!-- Code here -->}"
+    ]
+  },
+  "else": {
+    "prefix": "else",
+    "body": [
+      "<?php else : ?>",
+      "\t${0:<!-- Code here -->}"
+    ]
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "<?php for (\\$${1:i} = ${2:0}; \\$${1:i} < ${3:\\$n}; \\$${1:i}++) : ?>",
+      "\t${0:<!-- Code here -->}",
+      "<?php endfor; ?>"
+    ]
+  },
+  "while": {
+    "prefix": "while",
+    "body": [
+      "<?php while (${1:\\$condition}) : ?>",
+      "\t${0:<!-- Code here -->}",
+      "<?php endwhile; ?>"
+    ]
+  },
+  "switch": {
+    "prefix": "switch",
+    "body": [
+      "<?php switch (\\$${1:variable}) : ?>",
+      "\t<?php case ${2:\\$value} : ?>",
+      "\t\t${3:<!-- Code here -->}",
+      "\t\t<?php break; ?>",
+      "\t<?php default: ?>",
+      "\t\t<!-- Code here -->",
+      "\t\t<?php break; ?>",
+      "<?php endswitch; ?>"
+    ]
+  },
+  "Multipart Form": {
+    "prefix": "formMultipart",
+    "body": [
+      "<form action=\"\" method=\"post\" enctype=\"multipart/form-data\">",
+      "    $1",
+      "</form>"
+    ],
+    "description": "Creates a multipart form for file uploads."
+  }
+}

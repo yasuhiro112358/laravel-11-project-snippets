@@ -1,0 +1,31 @@
+{
+  "confirm": {
+    "prefix": "confirm",
+    "body": [
+      "document.querySelector('#delete_post').addEventListener('submit', e => {",
+      "\te.preventDefault();",
+      "",
+      "\tif (!confirm('Sure to delete?')) {",
+      "\t\treturn;",
+      "\t}",
+      "",
+      "\te.target.submit();",
+      "});"
+    ],
+    "description": ""
+  },
+  "IIFE Function": {
+    "prefix": "iife",
+    "body": [
+      "'use strict';",
+      "",
+      "(function() {",
+      "  function ${1:functionName}() {",
+      "  }",
+      "",
+      "  window.${1:functionName} = ${1:functionName};",
+      "})();"
+    ],
+    "description": "Create an Immediately Invoked Function Expression (IIFE) with 'use strict'"
+  }
+}
