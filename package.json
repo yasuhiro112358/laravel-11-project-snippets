@@ -1,0 +1,50 @@
+{
+  "name": "MyFirstExtension",
+  "displayName": "Laravel 11 Snippets",
+  "description": "This is a sample VS Code extension for creating custom snippets.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript"
+  ],
+  "main": "./src/extension.js",
+
+  "contributes": {
+    "commands": [{
+      "command": "MyFirstExtension.helloWorld",
+      "title": "Hello World"
+    }],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "echo 'No compilation required for JavaScript' && exit 0",
+    "watch": "node ./src/extension.js",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext js",
+    "test": "node ./src/test/runTest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/my-first-extension"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  }
+}
