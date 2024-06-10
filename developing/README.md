@@ -20,10 +20,7 @@ This is a VS Code extension for creating custom snippets for Laravel 11.
 
 ## Release Notes
 
-### 0.0.3
-- Update snippets.
-
-### 0.0.2
+### 0.0.4
 - Update snippets.
 
 ### 0.0.1

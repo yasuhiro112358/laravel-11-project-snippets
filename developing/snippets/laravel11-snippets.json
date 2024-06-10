@@ -158,7 +158,7 @@
         "body": [
             "const LOCAL_STORAGE_FOLDER = 'public/images/';",
             "",
-            "private function saveImage(\\$img_obj)",
+            "function saveImage(\\$img_obj)",
             "{",
             "\t\\$img_name = time() . '.' . \\$img_obj->extension();",
             "",
@@ -176,7 +176,7 @@
         "body": [
             "const LOCAL_STORAGE_FOLDER = 'public/images/';",
             "",
-            "private function deleteImage(\\$img_name)",
+            "function deleteImage(\\$img_name)",
             "{",
             "    \\$img_path = self::LOCAL_STORAGE_FOLDER . \\$img_name;",
             "",
@@ -210,5 +210,104 @@
             "}"
         ],
         "description": "Checks if user is authenticated, and redirects back if not."
+    },
+    "Eloquent Relationship - hasMany": {
+        "prefix": "hasMany",
+        "body": [
+            "public function ${1:posts}()",
+            "{",
+            "    return \\$this->hasMany(${2:Post}::class);",
+            "}"
+        ],
+        "description": "Creates a hasMany relationship"
+    },
+    "Eloquent Relationship - belongsTo": {
+        "prefix": "belongsTo",
+        "body": [
+            "public function ${1:user}()",
+            "{",
+            "    return \\$this->belongsTo(${2:User}::class);",
+            "}"
+        ],
+        "description": "Creates a belongsTo relationship"
+    },
+    "Eloquent Relationship - hasOne": {
+        "prefix": "hasOne",
+        "body": [
+            "public function ${1:setting}()",
+            "{",
+            "    return \\$this->hasOne(${2:Setting}::class);",
+            "}"
+        ],
+        "description": "Creates a hasOne relationship"
+    },
+    "Eloquent Relationship - belongsTo on Pivot Model": {
+        "prefix": "belongsToPivot",
+        "body": [
+            "public \\$timestamps = false; // do not save timestamps",
+            "protected \\$table = '${1:category_post}'; // If table name is singular",
+            "protected \\$fillable = ['${2:category_id}', '${3:post_id}'];",
+            "",
+            "public function category(){",
+            "    return \\$this->belongsTo(${4:Category}::class);",
+            "}",
+            "",
+            "public function post(){",
+            "    return \\$this->belongsTo(${5:Post}::class);",
+            "}"
+        ],
+        "description": "Creates belongsTo relationships on Pivot Model"
+    },
+    "Validation with custom error messages": {
+        "prefix": "validateWithCustomMessages",
+        "body": [
+            "\\$request->validate([",
+            "    'comment' => 'required|max:150'",
+            "], [",
+            "    'comment.required' => 'You cannot post an empty comment.',",
+            "    'comment.max' => 'Maximum of 150 characters only.'",
+            "]);"
+        ],
+        "description": "Validation rule with custom error messages"
+    },
+    "Validation for array": {
+        "prefix": "validateForArray",
+        "body": [
+            "\\$request->validate([",
+            "    '${1:categories}' => 'required|array|between:1,3'",
+            "]);"
+        ],
+        "description": "Validation rule for array"
+    },
+    "Validation for image": {
+        "prefix": "validateForImage",
+        "body": [
+            "\\$request->validate([",
+            "    '${1:image}' => 'required|max:1048|mimes:jpeg,jpg,png,gif'",
+            "    // maximum size is 1048kB",
+            "]);"
+        ],
+        "description": "Validation rule for image"
+    },
+    "Generate Data URI from Image Object": {
+        "prefix": "generateDataUriFromImage",
+        "body": [
+            "function generateDataUri(\\$img_obj)",
+            "{",
+            "    \\$img_extension = \\$img_obj->extension();",
+            "    \\$img_contents = file_get_contents(\\$img_obj);",
+            "    \\$base64_img = base64_encode(\\$img_contents);",
+            "",
+            "    \\$data_uri = 'data:image/' . \\$img_extension . ';base64,' . \\$base64_img;",
+            "",
+            "    return \\$data_uri;",
+            "}",
+            "",
+            "\\$img_obj = \\$request->${1:image};",
+            "\\$data_uri = generateDataUri(\\$img_obj);",
+            "\\$this->${2:model}->${1:image} = \\$data_uri;",
+            "\\$this->${2:model}->save();"
+        ],
+        "description": "Generates a Data URI from an image object and assigns it to a model's image attribute"
     }
 }
