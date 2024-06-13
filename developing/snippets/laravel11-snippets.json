@@ -145,6 +145,14 @@
         ],
         "description": "Import the Request class in Laravel"
     },
+    "Use SoftDeletes": {
+        "prefix": "useSoftDeletes",
+        "body": [
+            "use Illuminate\\Database\\Eloquent\\SoftDeletes;",
+            "// Make sure also writing 'use SoftDeletes;' inside Class definition"
+        ],
+        "description": "Insert use Illuminate\\Database\\Eloquent\\SoftDeletes;"
+    },
     "Laravel View with Data": {
         "prefix": "returnViewWith",
         "body": [
@@ -309,5 +317,12 @@
             "\\$this->${2:model}->save();"
         ],
         "description": "Generates a Data URI from an image object and assigns it to a model's image attribute"
+    },
+    "Add Foreign Key": {
+        "prefix": "foreignKey",
+        "body": [
+            "\\$table->foreign('${1:post}_id')->references('id')->on('${1:post}s')${2:->onDelete('cascade')};"
+        ],
+        "description": "Insert foreign key constraint with cascade delete"
     }
 }

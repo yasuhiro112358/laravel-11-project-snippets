@@ -1,8 +1,8 @@
 {
   "name": "laravel-11-project-snippets",
   "displayName": "Laravel 11 Project Snippets",
-  "description": "VS Code extension for creating custom snippets for Laravel 11 Project.",
-  "version": "0.0.4",
+  "description": "VS Code extension including custom snippets for Laravel 11 Project.",
+  "version": "0.0.5",
   "publisher": "nabeyasu112358",
   "engines": {
     "vscode": "^1.90.0"
